@@ -5,13 +5,13 @@ function print(title, data) {
   console.log(data);
 }
 
-async function practiceRequests() {
-  // 1. GET
+async function runRequests() {
+  // GET reads data from the API.
   const getResponse = await fetch(`${API_URL}/1`);
   const getData = await getResponse.json();
-  print("GET", getData);
+  print("GET: read one post", getData);
 
-  // 2. POST
+  // POST sends new data to the API.
   const postResponse = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -24,9 +24,9 @@ async function practiceRequests() {
     }),
   });
   const postData = await postResponse.json();
-  print("POST", postData);
+  print("POST: create a post", postData);
 
-  // 3. PUT
+  // PUT replaces an entire item.
   const putResponse = await fetch(`${API_URL}/1`, {
     method: "PUT",
     headers: {
@@ -40,9 +40,9 @@ async function practiceRequests() {
     }),
   });
   const putData = await putResponse.json();
-  print("PUT", putData);
+  print("PUT: replace a post", putData);
 
-  // 4. PATCH
+  // PATCH updates part of an item.
   const patchResponse = await fetch(`${API_URL}/1`, {
     method: "PATCH",
     headers: {
@@ -53,14 +53,14 @@ async function practiceRequests() {
     }),
   });
   const patchData = await patchResponse.json();
-  print("PATCH", patchData);
+  print("PATCH: update part of a post", patchData);
 
-  // 5. DELETE
+  // DELETE removes an item.
   const deleteResponse = await fetch(`${API_URL}/1`, {
     method: "DELETE",
   });
   const deleteData = await deleteResponse.json();
-  print("DELETE", deleteData);
+  print("DELETE: delete a post", deleteData);
 }
 
-practiceRequests();
+runRequests();
