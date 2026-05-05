@@ -1,10 +1,5 @@
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
-function print(title, data) {
-  console.log(`\n--- ${title} ---`);
-  console.log(data);
-}
-
 async function runRequests() {
   // GET reads data from the API.
   const getResponse = await fetch(`${API_URL}/1`);
