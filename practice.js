@@ -18,9 +18,7 @@ async function runRequests() {
       userId: 1,
     }),
   });
-  const postData = await postResponse.json();
-  print("POST: create a post", postData);
-
+  
   // PUT replaces an entire item.
   const putResponse = await fetch(`${API_URL}/1`, {
     method: "PUT",
@@ -34,9 +32,6 @@ async function runRequests() {
       userId: 1,
     }),
   });
-  const putData = await putResponse.json();
-  print("PUT: replace a post", putData);
-
   // PATCH updates part of an item.
   const patchResponse = await fetch(`${API_URL}/1`, {
     method: "PATCH",
@@ -47,15 +42,11 @@ async function runRequests() {
       title: "Updated title only",
     }),
   });
-  const patchData = await patchResponse.json();
-  print("PATCH: update part of a post", patchData);
 
   // DELETE removes an item.
   const deleteResponse = await fetch(`${API_URL}/1`, {
     method: "DELETE",
   });
-  const deleteData = await deleteResponse.json();
-  print("DELETE: delete a post", deleteData);
 }
 
 runRequests();
