@@ -4,7 +4,7 @@ async function runRequests() {
   // GET reads data from the API.
   const getResponse = await fetch(`${API_URL}/1`);
   const getData = await getResponse.json();
-  print("GET: read one post", getData);
+  console.log("GET: read one post", getData);
 
   // POST sends new data to the API.
   const postResponse = await fetch(API_URL, {
